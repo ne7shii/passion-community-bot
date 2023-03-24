@@ -5,16 +5,15 @@ import { env } from '../env/server.mjs'
 
 
 
-const fetchWhiteListCount = async (): Promise<number> => {
+const fetchWhiteListCount = async (): Promise<any> => {
     try {
 
-        const discordClient = new Client({ intents: [] })
-        discordClient.login(env.DISCORD_BOT_TOKEN)
+        const discordClient = new Client({ intents: ['GuildMembers', 'Guilds'] })
+        await discordClient.login(env.DISCORD_BOT_TOKEN)
         const guild = await discordClient.guilds.fetch(env.DISCORD_SERVER_ID)
-        // console.log('id',id)
-        // const member = await guild?.members.fetch(id)
-        const count = guild.roles.cache.get(env.DISCORD_WHITELIST_ROLE_ID)?.members.size
-        console.log('count', count)
+        await guild.members.fetch()
+        const role = guild.roles.cache.get(env.DISCORD_WHITELIST_ROLE_ID);
+        const count = role?.members.size
         return count === undefined ? -1 : count
     }
     catch (err) {
@@ -39,5 +38,8 @@ const getAllRoles = async (): Promise<any> => {
         return []
     }
 }
+
+
+
 // export default discordClient
 export { fetchWhiteListCount, getAllRoles }
