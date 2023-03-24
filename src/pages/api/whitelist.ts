@@ -10,6 +10,6 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-
+    res.setHeader('Cache-Control', 's-maxage=60');
     res.status(200).json({ count: await fetchWhiteListCount() })
 }
