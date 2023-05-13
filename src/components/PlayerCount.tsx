@@ -74,7 +74,7 @@ const PlayerCount = (props: Props) => {
                             </Tooltip.Portal>
                             <Tooltip.Portal>
                                 <Tooltip.Content className="bg-white p-2 rounded-xl" sideOffset={10} side='bottom' align='end' alignOffset={-5}>
-                                    <div className=' w-40 h-40'></div>
+                                    <div className=' lg:w-40 lg:h-40 w-20 h-20'></div>
                                     <Tooltip.Arrow className="fill-white w-3 h-3" />
                                 </Tooltip.Content>
 
