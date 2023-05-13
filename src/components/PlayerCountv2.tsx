@@ -35,7 +35,7 @@ const PlayerCount = (props: Props) => {
         setIsTooltipOpen(true);
     }, []); // open tooltip on mount
     return (
-        <div className={`flex h-[1080px]  w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-repeat-y `}>
+        <div className={`flex h-[1080px]  w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-no-repeat ` } >
             {/* <div className='text-white text-xl mt-3'>EVENT 1.0</div>
             <div className='flex flex-col items-center'>
                 <div className='text-lg mt-4 text-white md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
