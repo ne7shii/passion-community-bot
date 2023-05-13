@@ -35,7 +35,7 @@ const PlayerCount = (props: Props) => {
         setIsTooltipOpen(true);
     }, []); // open tooltip on mount
     return (
-        <div className='flex min-h-screen flex-col items-center bg-gradient-to-r from-pink-300 to-violet-300 gap-5'>
+        <div className='flex min-h-screen flex-col items-center bg-gradient-to-r from-pink-300 to-violet-300 gap-5 px-7'>
             <div className='text-pink-700 text-xl mt-3'>EVENT 1.0</div>
             <div className='flex flex-col items-center'>
                 <div className='text-lg mt-4 text-orange-800 md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
@@ -66,10 +66,18 @@ const PlayerCount = (props: Props) => {
                                 <div className={`absolute rounded-full bg-black h-8 w-8 -top-2 left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} />
                             </Tooltip.Trigger>
                             <Tooltip.Portal>
-                                <Tooltip.Content className="bg-white p-2 rounded-full" sideOffset={5}>
+                                <Tooltip.Content className="bg-white p-2 rounded-full" sideOffset={5} >
                                     {goal.labelValue}
                                     <Tooltip.Arrow className="fill-white" />
                                 </Tooltip.Content>
+
+                            </Tooltip.Portal>
+                            <Tooltip.Portal>
+                                <Tooltip.Content className="bg-white p-2 rounded-xl" sideOffset={10} side='bottom' align='end' alignOffset={-5}>
+                                    <div className=' w-40 h-40'></div>
+                                    <Tooltip.Arrow className="fill-white w-3 h-3" />
+                                </Tooltip.Content>
+
                             </Tooltip.Portal>
                         </Tooltip.Root>
 
