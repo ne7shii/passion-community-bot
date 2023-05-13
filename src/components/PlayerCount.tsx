@@ -35,11 +35,11 @@ const PlayerCount = (props: Props) => {
         setIsTooltipOpen(true);
     }, []); // open tooltip on mount
     return (
-        <div className='flex min-h-screen flex-col items-center bg-gradient-to-r from-pink-300 to-violet-300 gap-5 px-7'>
-            <div className='text-pink-700 text-xl mt-3'>EVENT 1.0</div>
+        <div className={`flex min-h-screen flex-col items-center gap-5 px-7 bg-[url('/bg.png')] bg-cover`}>
+            <div className='text-white text-xl mt-3'>EVENT 1.0</div>
             <div className='flex flex-col items-center'>
-                <div className='text-lg mt-4 text-orange-800 md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
-                <div className='text-lg text-orange-800 md:text-2xl'> ถ้าคุณอยากได้ มาเข้าร่วมกิจกรรมของเรากันเถอะ!</div>
+                <div className='text-lg mt-4 text-white md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
+                <div className='text-lg text-white md:text-2xl'> ถ้าคุณอยากได้ มาเข้าร่วมกิจกรรมของเรากันเถอะ!</div>
             </div>
             <div className='flex items-center justify-center flex-row flex-wrap gap-5 text-5xl font-bold'>
                 <span className='text-white'>
@@ -53,7 +53,7 @@ const PlayerCount = (props: Props) => {
                 {props.count || '0'}
             </div>
             <div className='relative max-w-6xl w-full'>
-                <Progress.Root className="w-full absolute bg-gray-500 h-4 rounded-full overflow-hidden" value={props.count}>
+                <Progress.Root className="w-full absolute bg-gray-500 h-4 rounded-full overflow-hidden mb-56" value={props.count}>
                     <Progress.Indicator
                         className="bg-red-500 rounded-full w-full h-full"
                         style={{ transform: `translateX(-${100 - currentPercent}%)` }}
