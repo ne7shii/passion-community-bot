@@ -1,0 +1,109 @@
+import * as Progress from '@radix-ui/react-progress';
+import * as Label from '@radix-ui/react-label';
+import * as Tooltip from '@radix-ui/react-tooltip';
+import React, { useEffect, useState } from 'react'
+
+type Props = {
+    count: number
+}
+type GoalValue = {
+    position: string,
+    labelValue: string
+}
+const goalValues: GoalValue[] = [
+    {
+        position: '25%',
+        labelValue: '300',
+    },
+    {
+        position: '50%',
+        labelValue: '600',
+    },
+    {
+        position: '75%',
+        labelValue: '900',
+    },
+    {
+        position: '100%',
+        labelValue: '1200',
+    },
+]
+const PlayerCount = (props: Props) => {
+    const [isTooltipOpen, setIsTooltipOpen] = useState(false);
+    const currentPercent: number = props.count / 1200 * 100
+    useEffect(() => {
+        setIsTooltipOpen(true);
+    }, []); // open tooltip on mount
+    return (
+        <div className='flex min-h-screen flex-col items-center bg-gradient-to-r from-pink-300 to-violet-300 gap-5'>
+            <div className='text-pink-700 text-xl mt-3'>EVENT 1.0</div>
+            <div className='flex flex-col items-center'>
+                <div className='text-lg mt-4 text-orange-800 md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
+                <div className='text-lg text-orange-800 md:text-2xl'> ถ้าคุณอยากได้ มาเข้าร่วมกิจกรรมของเรากันเถอะ!</div>
+            </div>
+            <div className='flex items-center justify-center flex-row flex-wrap gap-5 text-5xl font-bold'>
+                <span className='text-white'>
+                    PRE-REGISTRATION
+                </span>
+                <span>
+                    ลงทะเบียนล่วงหน้า
+                </span>
+            </div>
+            <div className={`text-[10rem] font-bold bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent ${!props.count && 'invisible'}`}>
+                {props.count || '0'}
+            </div>
+            <div className='relative max-w-6xl w-full'>
+                <Progress.Root className="w-full absolute bg-gray-500 h-4 rounded-full overflow-hidden" value={props.count}>
+                    <Progress.Indicator
+                        className="bg-red-500 rounded-full w-full h-full"
+                        style={{ transform: `translateX(-${100 - currentPercent}%)` }}
+                    />
+                </Progress.Root>
+                <Tooltip.Provider>
+                    {goalValues.map(goal => (
+                        <Tooltip.Root key={goal.labelValue} open={isTooltipOpen}>
+                            <Tooltip.Trigger asChild>
+                                <div className={`absolute rounded-full bg-black h-8 w-8 -top-2 left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} />
+                            </Tooltip.Trigger>
+                            <Tooltip.Portal>
+                                <Tooltip.Content className="bg-white p-2 rounded-full" sideOffset={5}>
+                                    {goal.labelValue}
+                                    <Tooltip.Arrow className="fill-white" />
+                                </Tooltip.Content>
+                            </Tooltip.Portal>
+                        </Tooltip.Root>
+
+                    ))}
+                </Tooltip.Provider>
+                {/* <Tooltip.Provider>
+
+                    <Tooltip.Root open={isTooltipOpen}>
+                        <Tooltip.Trigger asChild>
+                            <div className={`absolute rounded-full bg-black h-8 w-8 -top-2 left-[25%] `} style={{ transform: `translateX(-${50})` }} />
+                        </Tooltip.Trigger>
+                        <Tooltip.Portal>
+                            <Tooltip.Content className="bg-white p-2 rounded-full" sideOffset={5}>
+                                {300}
+                                <Tooltip.Arrow className="fill-white" />
+                            </Tooltip.Content>
+                        </Tooltip.Portal>
+                    </Tooltip.Root>
+
+                </Tooltip.Provider> */}
+
+
+                {/* 
+                <div className='absolute rounded-full bg-black h-8 w-8 -top-2 left-[50%] ' style={{ transform: `translateX(-${50}%)` }} />
+                <div className='absolute rounded-full bg-black h-8 w-8 -top-2 left-[75%] ' style={{ transform: `translateX(-${50}%)` }} />
+                <div className='absolute rounded-full bg-black h-8 w-8 -top-2 left-[100%] ' style={{ transform: `translateX(-${50}%)` }} /> */}
+
+
+            </div>
+
+        </div>
+    )
+}
+
+export default PlayerCount
+
+
