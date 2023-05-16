@@ -43,22 +43,8 @@ const PlayerCount = (props: Props) => {
     return (
 
         <div className={`w-full h-full bg-[url('/bg-w-text.png')]  `}>
-            <div className='w-full h-full overflow-scroll flex justify-center backdrop-blur-3xl'>
+            <div className='w-full h-full overflow-scroll flex justify-center backdrop-blur-3xl flex-col'>
                 <div className={`flex min-h-[1080px]  min-w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-no-repeat `} >
-                    {/* <div className='text-white text-xl mt-3'>EVENT 1.0</div>
-            <div className='flex flex-col items-center'>
-                <div className='text-lg mt-4 text-white md:text-2xl'>คุณอยากเล่นเกม FiveM แล้วได้รับของรางวัลแบบสุดพิเศษไหม? </div>
-                <div className='text-lg text-white md:text-2xl'> ถ้าคุณอยากได้ มาเข้าร่วมกิจกรรมของเรากันเถอะ!</div>
-            </div>
-            <div className='flex items-center justify-center flex-row flex-wrap gap-5 text-5xl font-bold'>
-                <span className='text-white'>
-                    PRE-REGISTRATION
-                </span>
-                <span>
-                    ลงทะเบียนล่วงหน้า
-                </span>
-            </div>
-            */}
                     <div className={`text-[10rem] font-bold text-white mt-96  ${!props.count && 'invisible'}`}>
                         {props.count || '0'}
                     </div>
@@ -101,6 +87,19 @@ const PlayerCount = (props: Props) => {
                         </Tooltip.Provider>
 
                     </div>
+
+                </div>
+                <div className={`flex min-h-[1080px]  min-w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-no-repeat `} >
+                    <div className={` mt-40 w-full flex justify-center `}>
+                        <Image
+                            src='/p2.png'
+                            width={1600}
+                            height={900}
+                            alt="Picture of the author"
+                            
+                        />
+                    </div>
+
 
                 </div>
             </div>
