@@ -43,8 +43,8 @@ const PlayerCount = (props: Props) => {
     return (
 
         <div className={`w-full h-full bg-[url('/bg-w-text.png')]  `}>
-            <div className='w-full h-full overflow-scroll flex justify-center backdrop-blur-3xl flex-col'>
-                <div className={`flex min-h-[1080px]  min-w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-no-repeat `} >
+            <div className='w-full h-full overflow-scroll flex justify-center backdrop-blur-3xl flex-col items-center'>
+                <div className={`flex h-[1080px]  w-[1920px] flex-col items-center gap-5 px-7 bg-[url('/bg-w-text.png')] bg-contain bg-no-repeat `} >
                     <div className={`text-[10rem] font-bold text-white mt-96  ${!props.count && 'invisible'}`}>
                         {props.count || '0'}
                     </div>
