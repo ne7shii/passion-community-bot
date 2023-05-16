@@ -6,7 +6,7 @@ import { trpc } from "../utils/trpc";
 import PlayerCount from "../components/PlayerCount";
 import { useQuery } from "@tanstack/react-query";
 import { fetchWhiteListCount } from "../utils/discord";
-import PlayerCountv2 from "../components/PlayerCountv2";
+import PlayerCountv3 from "../components/PlayerCountv3";
 
 type Props = {
   count: number
@@ -21,7 +21,7 @@ const Home: NextPage<Props> = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" min-w-screen min-h-screen flex justify-center ">
-        <PlayerCountv2 count={props.count} />
+        <PlayerCountv3 count={props.count} />
       </main>
     </>
   );
