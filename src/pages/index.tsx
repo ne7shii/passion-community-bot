@@ -18,6 +18,15 @@ const Home: NextPage<Props> = (props) => {
       <Head>
         <title>Passion Community</title>
         <meta name="description" content="พบกับประสบการณ์ใหม่ได้ที่ Passion Community ได้แล้ววันนี้ !" />
+        <meta property="og:title" content="Passion Community" />
+        <meta
+          property="og:description"
+          content="พบกับประสบการณ์ใหม่ได้ที่ Passion Community ได้แล้ววันนี้ !"
+        />
+        <meta
+          property="og:image"
+          content="https://passion-community.vercel.app/og.jpg"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" min-w-screen min-h-screen flex justify-center ">
