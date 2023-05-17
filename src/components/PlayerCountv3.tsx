@@ -57,7 +57,7 @@ const PlayerCount = (props: Props) => {
                         {props.count || '0'}
                     </div>
                     <div className='relative max-w-[70vw] w-full m-0 p-0 -translate-y-[4vw]'>
-                        <Progress.Root className="w-full absolute bg-gray-500 h-[1vw] rounded-full overflow-hidden mb-[20vw]" value={props.count}>
+                        <Progress.Root className="w-full absolute bg-gray-500 h-[0.5vw] rounded-full overflow-hidden mb-[20vw]" value={props.count}>
                             <Progress.Indicator
                                 className="bg-red-500 rounded-full w-full h-full"
                                 style={{ transform: `translateX(-${100 - currentPercent}%)` }}
@@ -67,7 +67,7 @@ const PlayerCount = (props: Props) => {
                             {goalValues.map(goal => (
                                 <Tooltip.Root key={goal.labelValue} open={isTooltipOpen} >
                                     <Tooltip.Trigger asChild>
-                                        <div className={`absolute rounded-full bg-black h-[3vw] w-[3vw] -top-[1vw] left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} />
+                                        <div className={`absolute rounded-full bg-black h-[3vw] w-[3vw] -top-[1.25vw] left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} />
                                     </Tooltip.Trigger>
                                     <Tooltip.Portal>
                                         <Tooltip.Content className="bg-white px-[0.5vw] rounded-full text-[1vw]" sideOffset={4} >
@@ -77,7 +77,7 @@ const PlayerCount = (props: Props) => {
 
                                     </Tooltip.Portal>
                                     <Tooltip.Portal>
-                                        <Tooltip.Content className="p-[2vw] " sideOffset={0} side='bottom' forceMount align='center' alignOffset={0} avoidCollisions={false}>
+                                        <Tooltip.Content className=" " sideOffset={0} side='bottom' forceMount align='center' alignOffset={0} avoidCollisions={false}>
                                             <Image
                                                 className='w-[28vw]'
                                                 src={goal.imgUrl}
