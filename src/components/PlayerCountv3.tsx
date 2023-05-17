@@ -16,22 +16,22 @@ const goalValues: GoalValue[] = [
     {
         position: '25%',
         labelValue: '300',
-        imgUrl: '/reward2.png'
+        imgUrl: '/r1.png'
     },
     {
         position: '50%',
         labelValue: '600',
-        imgUrl: '/reward2.png'
+        imgUrl: '/r2.png'
     },
     {
         position: '75%',
         labelValue: '900',
-        imgUrl: '/reward3.png'
+        imgUrl: '/r3.png'
     },
     {
         position: '100%',
         labelValue: '1200',
-        imgUrl: '/reward4.png'
+        imgUrl: '/r4.png'
     },
 ]
 const PlayerCount = (props: Props) => {
@@ -57,7 +57,7 @@ const PlayerCount = (props: Props) => {
                         {props.count || '0'}
                     </div>
                     <div className='relative max-w-[70vw] w-full m-0 p-0 -translate-y-[4vw]'>
-                        <Progress.Root className="w-full absolute bg-gray-500 h-[0.5vw] rounded-full overflow-hidden mb-[20vw]" value={props.count}>
+                        <Progress.Root className="w-full absolute bg-gray-500 h-[0.5vw] rounded-full overflow-hidden mb-[20vw]" value={currentPercent}>
                             <Progress.Indicator
                                 className="bg-red-500 rounded-full w-full h-full"
                                 style={{ transform: `translateX(-${100 - currentPercent}%)` }}
@@ -67,7 +67,25 @@ const PlayerCount = (props: Props) => {
                             {goalValues.map(goal => (
                                 <Tooltip.Root key={goal.labelValue} open={isTooltipOpen} >
                                     <Tooltip.Trigger asChild>
-                                        <div className={`absolute rounded-full bg-black h-[3vw] w-[3vw] -top-[1.25vw] left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} />
+                                        <div className={`absolute rounded-fullh-[3vw] w-[3vw] -top-[1.25vw] left-[${goal.position}] `} style={{ transform: `translateX(-${50}%)` }} >
+                                            {props.count >= Number(goal.labelValue) ?
+                                                < Image
+
+                                                    src={'/heartbox.svg'}
+                                                    width={23}
+                                                    height={23}
+                                                    alt="icon"
+                                                    className={`object-contain h-full w-full`}
+                                                /> :
+                                                < Image
+                                                    src={'/heartbox-w.svg'}
+                                                    width={23}
+                                                    height={23}
+                                                    alt="icon"
+                                                    className='object-contain h-full w-full '
+                                                />
+                                            }
+                                        </div>
                                     </Tooltip.Trigger>
                                     <Tooltip.Portal>
                                         <Tooltip.Content className="bg-white px-[0.5vw] rounded-full text-[1vw]" sideOffset={4} >
@@ -77,14 +95,24 @@ const PlayerCount = (props: Props) => {
 
                                     </Tooltip.Portal>
                                     <Tooltip.Portal>
-                                        <Tooltip.Content className=" " sideOffset={0} side='bottom' forceMount align='center' alignOffset={0} avoidCollisions={false}>
+                                        <Tooltip.Content className="relative" sideOffset={0} side='bottom' forceMount align='center' alignOffset={0} avoidCollisions={false}>
+                                            <div className=' w-[5vw] h-[5vw] left-[5vw] absolute z-10'>
+                                                < Image
+                                                    src={'/cleared.svg'}
+                                                    width={50}
+                                                    height={50}
+                                                    alt="icon"
+                                                    className={`object-contain h-full w-full  ${props.count >= Number(goal.labelValue) ? '':'hidden'}`}
+                                                />
+                                            </div>
                                             <Image
-                                                className='w-[28vw]'
+                                                className={`w-[24vw] object-contain relative z-0 ${props.count >= Number(goal.labelValue) ? 'grayscale':''}`}
                                                 src={goal.imgUrl}
                                                 width={500}
                                                 height={400}
                                                 alt="Picture of the author"
                                             />
+
                                         </Tooltip.Content>
 
                                     </Tooltip.Portal>
