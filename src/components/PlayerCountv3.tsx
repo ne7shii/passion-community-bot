@@ -111,6 +111,8 @@ const PlayerCount = (props: Props) => {
                         width={1600}
                         height={900}
                         alt="reward"
+                        quality={50}
+                        className='object-contain'
 
                     />
                 </div>
